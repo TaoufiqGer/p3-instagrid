@@ -56,15 +56,47 @@
 		653D411F2688CDA2009A59C6 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
+				653D415E268A2D2A009A59C6 /* Model */,
+				653D41342688E13E009A59C6 /* View */,
+				653D415F268A2D35009A59C6 /* Controller */,
+				653D415D268A2CA5009A59C6 /* Supporting Files */,
+			);
+			path = Instagrid;
+			sourceTree = "<group>";
+		};
+		653D41342688E13E009A59C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				653D41262688CDA2009A59C6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		653D415D268A2CA5009A59C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				653D41202688CDA2009A59C6 /* AppDelegate.swift */,
 				653D41222688CDA2009A59C6 /* SceneDelegate.swift */,
-				653D41242688CDA2009A59C6 /* ViewController.swift */,
-				653D41262688CDA2009A59C6 /* Main.storyboard */,
 				653D41292688CDA4009A59C6 /* Assets.xcassets */,
 				653D412B2688CDA4009A59C6 /* LaunchScreen.storyboard */,
 				653D412E2688CDA4009A59C6 /* Info.plist */,
 			);
-			path = Instagrid;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		653D415E268A2D2A009A59C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		653D415F268A2D35009A59C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				653D41242688CDA2009A59C6 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
