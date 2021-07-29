@@ -39,14 +39,23 @@
                                             <constraint firstAttribute="height" constant="80" id="jEw-w4-wAc"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 1"/>
+                                        <connections>
+                                            <action selector="firstLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Xk-vl-wKE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypX-h7-QyW">
                                         <rect key="frame" x="102" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
+                                        <connections>
+                                            <action selector="secondLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZX-Em-gs7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-iH-guj">
                                         <rect key="frame" x="204" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
+                                        <connections>
+                                            <action selector="thirdLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5d-i2-9zd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -239,16 +248,16 @@
                                 <exclude reference="rWb-mm-pcP"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GLU-oq-XO2"/>
-                                <exclude reference="fki-Xj-GIs"/>
                                 <exclude reference="DIO-pd-1a9"/>
                                 <exclude reference="aI4-eB-ceC"/>
                                 <exclude reference="BZU-Nn-H88"/>
                                 <exclude reference="zxO-T7-e11"/>
-                                <exclude reference="ftW-vI-rFc"/>
-                                <exclude reference="sVq-Ih-H2R"/>
+                                <exclude reference="fki-Xj-GIs"/>
                                 <exclude reference="9Hc-R9-aga"/>
                                 <exclude reference="Mvl-tp-shO"/>
+                                <exclude reference="ftW-vI-rFc"/>
+                                <exclude reference="sVq-Ih-H2R"/>
+                                <exclude reference="GLU-oq-XO2"/>
                                 <exclude reference="Df5-yF-bZ0"/>
                             </mask>
                         </variation>
@@ -258,12 +267,12 @@
                                 <include reference="d5t-i4-XxK"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GLU-oq-XO2"/>
-                                <exclude reference="gug-f7-FR2"/>
-                                <exclude reference="2BA-85-XVH"/>
-                                <include reference="fki-Xj-GIs"/>
                                 <include reference="DIO-pd-1a9"/>
                                 <include reference="aI4-eB-ceC"/>
+                                <exclude reference="2BA-85-XVH"/>
+                                <include reference="fki-Xj-GIs"/>
+                                <include reference="GLU-oq-XO2"/>
+                                <exclude reference="gug-f7-FR2"/>
                                 <include reference="Df5-yF-bZ0"/>
                                 <exclude reference="Tqm-5o-Q5N"/>
                             </mask>
@@ -276,14 +285,18 @@
                             <mask key="constraints">
                                 <include reference="BZU-Nn-H88"/>
                                 <include reference="zxO-T7-e11"/>
-                                <include reference="ftW-vI-rFc"/>
-                                <exclude reference="sVq-Ih-H2R"/>
                                 <exclude reference="3z3-RH-7hq"/>
                                 <include reference="9Hc-R9-aga"/>
                                 <exclude reference="Mvl-tp-shO"/>
+                                <include reference="ftW-vI-rFc"/>
+                                <exclude reference="sVq-Ih-H2R"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="buttomRow" destination="6z8-DG-BCg" id="sii-Yf-3B4"/>
+                        <outlet property="topRow" destination="K7h-vR-ine" id="2Jm-wa-hR8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
