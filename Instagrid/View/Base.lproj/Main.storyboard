@@ -29,7 +29,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="anz-yC-qR9">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="anz-yC-qR9" customClass="LayoutButtons" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="65" y="752" width="284" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ef-dRd">
@@ -58,6 +58,12 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <connections>
+                                    <outletCollection property="layoutGrid" destination="iSa-fp-IsO" collectionClass="NSMutableArray" id="60B-MC-RyZ"/>
+                                    <outletCollection property="layoutButton" destination="GNL-Ef-dRd" collectionClass="NSMutableArray" id="8ZD-kI-yhs"/>
+                                    <outletCollection property="layoutButton" destination="ypX-h7-QyW" collectionClass="NSMutableArray" id="tbX-Vp-uHn"/>
+                                    <outletCollection property="layoutButton" destination="UQ4-iH-guj" collectionClass="NSMutableArray" id="IWr-ZC-Nni"/>
+                                </connections>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-Ei-71K">
                                 <rect key="frame" x="200" y="169" width="14" height="10"/>
@@ -91,7 +97,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-fp-IsO">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-fp-IsO" customClass="LayoutButtons" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="58" y="226.5" width="298" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="K7h-vR-ine">
@@ -294,8 +300,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="buttomRow" destination="6z8-DG-BCg" id="sii-Yf-3B4"/>
-                        <outlet property="topRow" destination="K7h-vR-ine" id="2Jm-wa-hR8"/>
+                        <outlet property="layoutButtons" destination="anz-yC-qR9" id="KmV-Kd-Fj9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
