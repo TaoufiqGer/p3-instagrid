@@ -13,7 +13,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
+    @IBOutlet weak var layoutButtons: LayoutButtons!
+    
+    @IBAction func firstLayout(_ sender: UIButton) {
+        layoutButtons.style = .first
+    }
+    
+    @IBAction func secondLayout(_ sender: UIButton) {
+        layoutButtons.style = .second
+    }
+    
+    @IBAction func thirdLayout(_ sender: UIButton) {
+        layoutButtons.style = .third
+    }
 }
 

@@ -29,7 +29,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="anz-yC-qR9">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="anz-yC-qR9" customClass="LayoutButtons" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="65" y="752" width="284" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ef-dRd">
@@ -39,16 +39,31 @@
                                             <constraint firstAttribute="height" constant="80" id="jEw-w4-wAc"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 1"/>
+                                        <connections>
+                                            <action selector="firstLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Xk-vl-wKE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypX-h7-QyW">
                                         <rect key="frame" x="102" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
+                                        <connections>
+                                            <action selector="secondLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZX-Em-gs7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-iH-guj">
                                         <rect key="frame" x="204" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
+                                        <connections>
+                                            <action selector="thirdLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5d-i2-9zd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <connections>
+                                    <outletCollection property="layoutGrid" destination="iSa-fp-IsO" collectionClass="NSMutableArray" id="60B-MC-RyZ"/>
+                                    <outletCollection property="layoutButton" destination="GNL-Ef-dRd" collectionClass="NSMutableArray" id="8ZD-kI-yhs"/>
+                                    <outletCollection property="layoutButton" destination="ypX-h7-QyW" collectionClass="NSMutableArray" id="tbX-Vp-uHn"/>
+                                    <outletCollection property="layoutButton" destination="UQ4-iH-guj" collectionClass="NSMutableArray" id="IWr-ZC-Nni"/>
+                                </connections>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-Ei-71K">
                                 <rect key="frame" x="200" y="169" width="14" height="10"/>
@@ -82,7 +97,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-fp-IsO">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-fp-IsO" customClass="LayoutButtons" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="58" y="226.5" width="298" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="K7h-vR-ine">
@@ -239,16 +254,16 @@
                                 <exclude reference="rWb-mm-pcP"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GLU-oq-XO2"/>
-                                <exclude reference="fki-Xj-GIs"/>
                                 <exclude reference="DIO-pd-1a9"/>
                                 <exclude reference="aI4-eB-ceC"/>
                                 <exclude reference="BZU-Nn-H88"/>
                                 <exclude reference="zxO-T7-e11"/>
-                                <exclude reference="ftW-vI-rFc"/>
-                                <exclude reference="sVq-Ih-H2R"/>
+                                <exclude reference="fki-Xj-GIs"/>
                                 <exclude reference="9Hc-R9-aga"/>
                                 <exclude reference="Mvl-tp-shO"/>
+                                <exclude reference="ftW-vI-rFc"/>
+                                <exclude reference="sVq-Ih-H2R"/>
+                                <exclude reference="GLU-oq-XO2"/>
                                 <exclude reference="Df5-yF-bZ0"/>
                             </mask>
                         </variation>
@@ -258,12 +273,12 @@
                                 <include reference="d5t-i4-XxK"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GLU-oq-XO2"/>
-                                <exclude reference="gug-f7-FR2"/>
-                                <exclude reference="2BA-85-XVH"/>
-                                <include reference="fki-Xj-GIs"/>
                                 <include reference="DIO-pd-1a9"/>
                                 <include reference="aI4-eB-ceC"/>
+                                <exclude reference="2BA-85-XVH"/>
+                                <include reference="fki-Xj-GIs"/>
+                                <include reference="GLU-oq-XO2"/>
+                                <exclude reference="gug-f7-FR2"/>
                                 <include reference="Df5-yF-bZ0"/>
                                 <exclude reference="Tqm-5o-Q5N"/>
                             </mask>
@@ -276,14 +291,17 @@
                             <mask key="constraints">
                                 <include reference="BZU-Nn-H88"/>
                                 <include reference="zxO-T7-e11"/>
-                                <include reference="ftW-vI-rFc"/>
-                                <exclude reference="sVq-Ih-H2R"/>
                                 <exclude reference="3z3-RH-7hq"/>
                                 <include reference="9Hc-R9-aga"/>
                                 <exclude reference="Mvl-tp-shO"/>
+                                <include reference="ftW-vI-rFc"/>
+                                <exclude reference="sVq-Ih-H2R"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="layoutButtons" destination="anz-yC-qR9" id="KmV-Kd-Fj9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
