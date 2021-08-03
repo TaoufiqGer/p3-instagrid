@@ -23,48 +23,6 @@
                                     <constraint firstAttribute="height" constant="30" id="f0q-Oc-qD7"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcb-iS-bxk">
-                                <rect key="frame" x="139" y="191" width="136" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="anz-yC-qR9" customClass="LayoutButtons" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="65" y="752" width="284" height="80"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ef-dRd">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="MpT-RU-Zyn"/>
-                                            <constraint firstAttribute="height" constant="80" id="jEw-w4-wAc"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="Layout 1"/>
-                                        <connections>
-                                            <action selector="firstLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Xk-vl-wKE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypX-h7-QyW">
-                                        <rect key="frame" x="102" y="0.0" width="80" height="80"/>
-                                        <state key="normal" backgroundImage="Layout 2"/>
-                                        <connections>
-                                            <action selector="secondLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZX-Em-gs7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-iH-guj">
-                                        <rect key="frame" x="204" y="0.0" width="80" height="80"/>
-                                        <state key="normal" backgroundImage="Layout 3"/>
-                                        <connections>
-                                            <action selector="thirdLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5d-i2-9zd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <connections>
-                                    <outletCollection property="layoutGrid" destination="iSa-fp-IsO" collectionClass="NSMutableArray" id="60B-MC-RyZ"/>
-                                    <outletCollection property="layoutButton" destination="GNL-Ef-dRd" collectionClass="NSMutableArray" id="8ZD-kI-yhs"/>
-                                    <outletCollection property="layoutButton" destination="ypX-h7-QyW" collectionClass="NSMutableArray" id="tbX-Vp-uHn"/>
-                                    <outletCollection property="layoutButton" destination="UQ4-iH-guj" collectionClass="NSMutableArray" id="IWr-ZC-Nni"/>
-                                </connections>
-                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-Ei-71K">
                                 <rect key="frame" x="200" y="169" width="14" height="10"/>
                                 <constraints>
@@ -97,7 +55,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-fp-IsO" customClass="LayoutButtons" customModule="Instagrid" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcb-iS-bxk">
+                                <rect key="frame" x="139" y="191" width="136" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-fp-IsO" customClass="LayoutGrid" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="58" y="226.5" width="298" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="K7h-vR-ine">
@@ -222,6 +186,36 @@
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="14" leading="14" bottom="14" trailing="14"/>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="anz-yC-qR9" customClass="LayoutButtons" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="65" y="752" width="284" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ef-dRd">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="MpT-RU-Zyn"/>
+                                            <constraint firstAttribute="height" constant="80" id="jEw-w4-wAc"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Layout 1"/>
+                                        <connections>
+                                            <action selector="firstLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Xk-vl-wKE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypX-h7-QyW">
+                                        <rect key="frame" x="102" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout 2"/>
+                                        <connections>
+                                            <action selector="secondLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZX-Em-gs7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-iH-guj">
+                                        <rect key="frame" x="204" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout 3"/>
+                                        <connections>
+                                            <action selector="thirdLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5d-i2-9zd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -285,8 +279,8 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="subviews">
-                                <exclude reference="zcb-iS-bxk"/>
                                 <include reference="rWb-mm-pcP"/>
+                                <exclude reference="zcb-iS-bxk"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="BZU-Nn-H88"/>
@@ -300,7 +294,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="layoutButtons" destination="anz-yC-qR9" id="KmV-Kd-Fj9"/>
+                        <outlet property="buttonStack" destination="anz-yC-qR9" id="DGm-lf-sLn"/>
+                        <outlet property="imageStack" destination="iSa-fp-IsO" id="M41-5Y-jtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

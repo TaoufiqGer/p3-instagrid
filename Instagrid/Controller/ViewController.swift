@@ -15,18 +15,21 @@ class ViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var layoutButtons: LayoutButtons!
+    @IBOutlet weak var imageStack: LayoutGrid!
+    @IBOutlet weak var buttonStack: LayoutButtons!
+
     
     @IBAction func firstLayout(_ sender: UIButton) {
-        layoutButtons.style = .first
+        buttonStack.style = .first
+        imageStack.style = .first
     }
     
     @IBAction func secondLayout(_ sender: UIButton) {
-        layoutButtons.style = .second
+        buttonStack.style = .second
     }
     
     @IBAction func thirdLayout(_ sender: UIButton) {
-        layoutButtons.style = .third
+        buttonStack.style = .third
     }
 }
 
