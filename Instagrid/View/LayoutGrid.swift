@@ -9,7 +9,8 @@ import UIKit
 
 class LayoutGrid: UIStackView {
 
-    @IBOutlet private var imageStack: UIStackView!
+    @IBOutlet private var upperRow: UIStackView!
+    @IBOutlet private var bottomRow: UIStackView!
     
     enum Style {
         case first, second, third
@@ -21,28 +22,23 @@ class LayoutGrid: UIStackView {
         }
     }
     
+    
     private func setStyle(_ style: Style) {
-        
-        /*var buttons: [UIButton] = []
-        
-        for button in buttonStack.arrangedSubviews {
-            buttons.append(button as! UIButton)
-        }*/
         
         switch style {
         case .first:
-            imageStack.arrangedSubviews[0].isHidden = true
-            imageStack.arrangedSubviews[0].isHidden = false
-            imageStack.arrangedSubviews[1].isHidden = false
+            upperRow.arrangedSubviews[0].isHidden = true
+            bottomRow.arrangedSubviews[0].isHidden = false
+            bottomRow.arrangedSubviews[1].isHidden = false
         case .second:
-            imageStack.arrangedSubviews[0].isHidden = false
-            imageStack.arrangedSubviews[1].isHidden = false
-            imageStack.arrangedSubviews[0].isHidden = true
+            upperRow.arrangedSubviews[0].isHidden = false
+            upperRow.arrangedSubviews[1].isHidden = false
+            bottomRow.arrangedSubviews[0].isHidden = true
         case .third:
-            imageStack.arrangedSubviews[0].isHidden = false
-            imageStack.arrangedSubviews[1].isHidden = false
-            imageStack.arrangedSubviews[0].isHidden = false
-            imageStack.arrangedSubviews[1].isHidden = false
+            upperRow.arrangedSubviews[0].isHidden = false
+            upperRow.arrangedSubviews[1].isHidden = false
+            bottomRow.arrangedSubviews[0].isHidden = false
+            bottomRow.arrangedSubviews[1].isHidden = false
         }
     }
     

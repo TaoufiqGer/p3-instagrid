@@ -8,28 +8,42 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if UIDevice.current.orientation.isPortrait {
+            label.text = "Swipe up to share"
+        } else {
+            label.text = "Swipe left to share"
+        }
     }
     
     
-    @IBOutlet weak var imageStack: LayoutGrid!
-    @IBOutlet weak var buttonStack: LayoutButtons!
-
+    @IBOutlet weak var images: LayoutGrid!
+    @IBOutlet weak var buttons: LayoutButtons!
+    
     
     @IBAction func firstLayout(_ sender: UIButton) {
-        buttonStack.style = .first
-        imageStack.style = .first
+        buttons.style = .first
+        images.style = .first
     }
     
     @IBAction func secondLayout(_ sender: UIButton) {
-        buttonStack.style = .second
+        buttons.style = .second
+        images.style = .second
     }
     
     @IBAction func thirdLayout(_ sender: UIButton) {
-        buttonStack.style = .third
+        buttons.style = .third
+        images.style = .third
     }
+    
+    @IBAction func addImage(_ sender: UIButton) {
+        
+    }
+    
 }
 
