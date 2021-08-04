@@ -284,6 +284,10 @@
                         <outlet property="buttons" destination="anz-yC-qR9" id="XYC-I4-8IT"/>
                         <outlet property="images" destination="iSa-fp-IsO" id="8OG-ql-DRc"/>
                         <outlet property="label" destination="ILk-ul-MXV" id="GCC-Du-ZMV"/>
+                        <outletCollection property="imagesArray" destination="uUW-4G-G0s" collectionClass="NSMutableArray" id="dGN-Sm-Rjb"/>
+                        <outletCollection property="imagesArray" destination="5Eu-lD-4KT" collectionClass="NSMutableArray" id="LLC-aY-G9L"/>
+                        <outletCollection property="imagesArray" destination="1Lp-Sl-4ba" collectionClass="NSMutableArray" id="NN0-ZI-0BD"/>
+                        <outletCollection property="imagesArray" destination="3Kf-tr-Mr9" collectionClass="NSMutableArray" id="9Z3-w7-CKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

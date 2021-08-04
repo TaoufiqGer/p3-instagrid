@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         if UIDevice.current.orientation.isPortrait {
             label.text = "Swipe up to share"
         } else {
@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var images: LayoutGrid!
     @IBOutlet weak var buttons: LayoutButtons!
+    
+    
+    @IBOutlet var imagesArray: [UIImageView]!
     
     
     @IBAction func firstLayout(_ sender: UIButton) {
@@ -41,9 +44,27 @@ class ViewController: UIViewController {
         images.style = .third
     }
     
+    var imagePicker = UIImagePickerController()
+    
     @IBAction func addImage(_ sender: UIButton) {
-        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+                    print("Button capture")
+
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = .savedPhotosAlbum
+                    imagePicker.allowsEditing = false
+
+                    present(imagePicker, animated: true, completion: nil)
+        }
     }
     
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
+            self.dismiss(animated: true, completion: { () -> Void in
+
+            })
+
+        imagesArray[0].image = image
+    }
 }
 
