@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     
@@ -19,9 +19,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         } else {
             label.text = "Swipe left to share"
         }
+        
+        let name = Notification.Name(rawValue: "PicturesLoaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(picturesLoaded), name: name, object: nil)
     }
     
-    
+    var layoutEngine = LayoutEngine()
+
     @IBOutlet weak var images: LayoutGrid!
     @IBOutlet weak var buttons: LayoutButtons!
     
@@ -30,41 +34,58 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func firstLayout(_ sender: UIButton) {
+        layoutEngine.pictures = []
         buttons.style = .first
         images.style = .first
     }
     
     @IBAction func secondLayout(_ sender: UIButton) {
+        layoutEngine.pictures = []
         buttons.style = .second
         images.style = .second
     }
     
     @IBAction func thirdLayout(_ sender: UIButton) {
+        layoutEngine.pictures = []
         buttons.style = .third
         images.style = .third
+        
     }
     
-    var imagePicker = UIImagePickerController()
+    var currentButton: UIButton = UIButton()
+    
     
     @IBAction func addImage(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-                    print("Button capture")
-
-                    imagePicker.delegate = self
-                    imagePicker.sourceType = .savedPhotosAlbum
-                    imagePicker.allowsEditing = false
-
-                    present(imagePicker, animated: true, completion: nil)
-        }
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
+        layoutEngine.currentImage = sender.accessibilityElementCount()
+        currentButton = sender
     }
     
+    @objc func picturesLoaded() {
+        
+        imagesArray[layoutEngine.currentImage].image = layoutEngine.pictures[layoutEngine.currentImage]
+        
+    }
+        
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
-            self.dismiss(animated: true, completion: { () -> Void in
 
-            })
+}
 
-        imagesArray[0].image = image
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            layoutEngine.pictures[layoutEngine.currentImage] = image
+        }
+        currentButton.isHidden = true
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
