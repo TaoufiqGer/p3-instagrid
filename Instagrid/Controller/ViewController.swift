@@ -53,7 +53,13 @@ class ViewController: UIViewController {
         translationTransform = CGAffineTransform(translationX: 0, y: 0)
         
         UIView.animate(withDuration: 2.3, animations: {
-            self.gridLayout.transform = translationTransform }, completion: nil)
+                        self.gridLayout.transform = translationTransform }) {_ in
+            // completion code here
+        }
+        // use Completion
+        /*}) {
+         // my code here
+         }*/
         
     }
     
