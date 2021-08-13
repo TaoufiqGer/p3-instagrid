@@ -14,8 +14,8 @@
 		653D412A2688CDA4009A59C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653D41292688CDA4009A59C6 /* Assets.xcassets */; };
 		653D412D2688CDA4009A59C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653D412B2688CDA4009A59C6 /* LaunchScreen.storyboard */; };
 		6571C61A26BC157300F6326C /* LayoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6571C61926BC157200F6326C /* LayoutEngine.swift */; };
-		65DBCEEC26B2F47400A668C9 /* LayoutButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DBCEEB26B2F47400A668C9 /* LayoutButtons.swift */; };
-		65DBCEF226B80E4600A668C9 /* LayoutGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DBCEF126B80E4600A668C9 /* LayoutGrid.swift */; };
+		65DBCEEC26B2F47400A668C9 /* ButtonsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DBCEEB26B2F47400A668C9 /* ButtonsLayout.swift */; };
+		65DBCEF226B80E4600A668C9 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DBCEF126B80E4600A668C9 /* GridLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		653D41292688CDA4009A59C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		653D412C2688CDA4009A59C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		653D412E2688CDA4009A59C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6571C61926BC157200F6326C /* LayoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LayoutEngine.swift; path = Instagrid/View/LayoutEngine.swift; sourceTree = SOURCE_ROOT; };
-		65DBCEEB26B2F47400A668C9 /* LayoutButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutButtons.swift; sourceTree = "<group>"; };
-		65DBCEF126B80E4600A668C9 /* LayoutGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGrid.swift; sourceTree = "<group>"; };
+		6571C61926BC157200F6326C /* LayoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LayoutEngine.swift; path = Instagrid/Model/LayoutEngine.swift; sourceTree = SOURCE_ROOT; };
+		65DBCEEB26B2F47400A668C9 /* ButtonsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsLayout.swift; sourceTree = "<group>"; };
+		65DBCEF126B80E4600A668C9 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 		653D411F2688CDA2009A59C6 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				653D415E268A2D2A009A59C6 /* Model */,
+				6571C61B26BC46AE00F6326C /* Model */,
 				653D41342688E13E009A59C6 /* View */,
 				653D415F268A2D35009A59C6 /* Controller */,
 				653D415D268A2CA5009A59C6 /* Supporting Files */,
@@ -74,8 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				653D41262688CDA2009A59C6 /* Main.storyboard */,
-				65DBCEEB26B2F47400A668C9 /* LayoutButtons.swift */,
-				65DBCEF126B80E4600A668C9 /* LayoutGrid.swift */,
+				65DBCEEB26B2F47400A668C9 /* ButtonsLayout.swift */,
+				65DBCEF126B80E4600A668C9 /* GridLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -92,20 +92,20 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		653D415E268A2D2A009A59C6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6571C61926BC157200F6326C /* LayoutEngine.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		653D415F268A2D35009A59C6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				653D41242688CDA2009A59C6 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		6571C61B26BC46AE00F6326C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6571C61926BC157200F6326C /* LayoutEngine.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,8 +182,8 @@
 				653D41212688CDA2009A59C6 /* AppDelegate.swift in Sources */,
 				6571C61A26BC157300F6326C /* LayoutEngine.swift in Sources */,
 				653D41232688CDA2009A59C6 /* SceneDelegate.swift in Sources */,
-				65DBCEF226B80E4600A668C9 /* LayoutGrid.swift in Sources */,
-				65DBCEEC26B2F47400A668C9 /* LayoutButtons.swift in Sources */,
+				65DBCEF226B80E4600A668C9 /* GridLayout.swift in Sources */,
+				65DBCEEC26B2F47400A668C9 /* ButtonsLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

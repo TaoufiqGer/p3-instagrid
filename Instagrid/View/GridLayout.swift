@@ -7,10 +7,11 @@
 
 import UIKit
 
-class LayoutGrid: UIStackView {
-
-    @IBOutlet private var upperRow: UIStackView!
+class GridLayout: UIStackView {
+    
     @IBOutlet private var bottomRow: UIStackView!
+    @IBOutlet private var upperRow: UIStackView!
+
     
     enum Style {
         case first, second, third

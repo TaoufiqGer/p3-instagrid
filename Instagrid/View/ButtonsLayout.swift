@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LayoutButtons: UIStackView {
+class ButtonsLayout: UIStackView {
 
         
     enum Style {
@@ -30,7 +30,7 @@ class LayoutButtons: UIStackView {
         
         switch style {
         case .first:
-
+            buttons[0].isSelected = true
             buttons[0].setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
             buttons[1].setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
             buttons[2].setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)

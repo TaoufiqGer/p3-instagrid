@@ -9,51 +9,80 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var label: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        if UIDevice.current.orientation.isPortrait {
-            label.text = "Swipe up to share"
-        } else {
-            label.text = "Swipe left to share"
-        }
-        
-        let name = Notification.Name(rawValue: "PicturesLoaded")
-        NotificationCenter.default.addObserver(self, selector: #selector(picturesLoaded), name: name, object: nil)
+        let picturesLoadedNotification = Notification.Name(rawValue: "PicturesLoaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(picturesLoaded), name: picturesLoadedNotification, object: nil)
+        layoutEngine.refresh()
+        NotificationCenter.default.addObserver(self, selector: #selector(onDeviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
-    var layoutEngine = LayoutEngine()
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var gridLayout: GridLayout!
+    @IBOutlet weak var buttonsLayout: ButtonsLayout!
+    @IBOutlet var images: [UIImageView]!
 
-    @IBOutlet weak var images: LayoutGrid!
-    @IBOutlet weak var buttons: LayoutButtons!
+    var layoutEngine = LayoutEngine()
+    var currentButton: UIButton = UIButton()
+
     
+    @IBAction func swipeUpTransform(_ sender: UISwipeGestureRecognizer) {
+        transformGridView(with: sender)
+    }
     
-    @IBOutlet var imagesArray: [UIImageView]!
+    @IBAction func swipeLeftTransform(_ sender: UISwipeGestureRecognizer) {
+        transformGridView(with: sender)
+    }
     
+    private func transformGridView(with gesture: UISwipeGestureRecognizer) {
+        
+        var translationTransform: CGAffineTransform
+        
+        if gesture.direction == .up {
+            translationTransform = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
+        } else {
+            translationTransform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+        }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.gridLayout.transform = translationTransform }, completion: nil)
+        
+        share()
+        
+        translationTransform = CGAffineTransform(translationX: 0, y: 0)
+        
+        UIView.animate(withDuration: 2.3, animations: {
+            self.gridLayout.transform = translationTransform }, completion: nil)
+        
+    }
+    
+    private func share() {
+        let activityViewController =
+            UIActivityViewController(activityItems: images, applicationActivities: nil)
+
+        present(activityViewController, animated: true)
+    }
     
     @IBAction func firstLayout(_ sender: UIButton) {
         layoutEngine.pictures = []
-        buttons.style = .first
-        images.style = .first
+        buttonsLayout.style = .first
+        gridLayout.style = .first
     }
     
     @IBAction func secondLayout(_ sender: UIButton) {
         layoutEngine.pictures = []
-        buttons.style = .second
-        images.style = .second
+        buttonsLayout.style = .second
+        gridLayout.style = .second
     }
     
     @IBAction func thirdLayout(_ sender: UIButton) {
         layoutEngine.pictures = []
-        buttons.style = .third
-        images.style = .third
+        buttonsLayout.style = .third
+        gridLayout.style = .third
         
     }
-    
-    var currentButton: UIButton = UIButton()
-    
+        
     
     @IBAction func addImage(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
@@ -61,18 +90,35 @@ class ViewController: UIViewController {
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true)
-        layoutEngine.currentImage = sender.accessibilityElementCount()
+        
+        layoutEngine.currentImage = sender.tag - 1
+        
         currentButton = sender
+        
+        
+        /*layoutEngine.currentImage = sender.accessibilityElementCount()
+        
+        print(index(ofAccessibilityElement: sender))
+        currentButton = sender*/
+        
+        //Add tags to buttons
+        // OR
+        
+        
     }
     
     @objc func picturesLoaded() {
-        
-        imagesArray[layoutEngine.currentImage].image = layoutEngine.pictures[layoutEngine.currentImage]
-        
+        images[layoutEngine.currentImage].image = layoutEngine.pictures[layoutEngine.currentImage]
     }
-        
     
-
+    @objc func onDeviceRotated() {
+        if UIDevice.current.orientation.isPortrait {
+            label.text = "Swipe up to share"
+            
+        } else {
+            label.text = "Swipe left to share"
+        }
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -80,12 +126,15 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             layoutEngine.pictures[layoutEngine.currentImage] = image
+            //imagesArray[0].image = image
+            layoutEngine.refresh()
+            
         }
         currentButton.isHidden = true
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
 }
-
