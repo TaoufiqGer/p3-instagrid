@@ -29,18 +29,23 @@ class GridLayout: UIStackView {
         switch style {
         case .first:
             upperRow.arrangedSubviews[0].isHidden = true
-            bottomRow.arrangedSubviews[0].isHidden = false
             bottomRow.arrangedSubviews[1].isHidden = false
         case .second:
             upperRow.arrangedSubviews[0].isHidden = false
-            upperRow.arrangedSubviews[1].isHidden = false
-            bottomRow.arrangedSubviews[0].isHidden = true
+            bottomRow.arrangedSubviews[1].isHidden = true
         case .third:
             upperRow.arrangedSubviews[0].isHidden = false
-            upperRow.arrangedSubviews[1].isHidden = false
-            bottomRow.arrangedSubviews[0].isHidden = false
             bottomRow.arrangedSubviews[1].isHidden = false
         }
     }
     
+}
+
+extension GridLayout {
+    func toImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
 }

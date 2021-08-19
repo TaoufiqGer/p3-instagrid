@@ -6,10 +6,9 @@
 //
 
 import UIKit
-
+//Subview represents buttons stack
 class ButtonsLayout: UIStackView {
 
-        
     enum Style {
         case first, second, third
     }
@@ -20,30 +19,29 @@ class ButtonsLayout: UIStackView {
         }
     }
     
-    private var buttons: [UIButton] = []
+    private var buttons: [UIButton] {
+        var array: [UIButton] = []
+        for button in arrangedSubviews {
+            array.append(button as! UIButton)
+        }
+        return array
+    }
     
     private func setStyle(_ style: Style) {
-        
-        for button in arrangedSubviews {
-            buttons.append(button as! UIButton)
-        }
-        
+        unselectButtons()
         switch style {
         case .first:
             buttons[0].isSelected = true
-            buttons[0].setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
-            buttons[1].setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
-            buttons[2].setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
         case .second:
-
-            buttons[0].setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
-            buttons[1].setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
-            buttons[2].setBackgroundImage(#imageLiteral(resourceName: "Layout 3"), for: UIControl.State.normal)
+            buttons[1].isSelected = true
         case .third:
-
-            buttons[0].setBackgroundImage(#imageLiteral(resourceName: "Layout 1"), for: UIControl.State.normal)
-            buttons[1].setBackgroundImage(#imageLiteral(resourceName: "Layout 2"), for: UIControl.State.normal)
-            buttons[2].setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: UIControl.State.normal)
+            buttons[2].isSelected = true
+        }
+    }
+    
+    private func unselectButtons() {
+        for button in buttons {
+            button.isSelected = false
         }
     }
     

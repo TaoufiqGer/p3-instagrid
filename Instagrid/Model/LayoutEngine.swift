@@ -9,13 +9,24 @@ import Foundation
 import UIKit
 
 class LayoutEngine {
-    var pictures: [UIImage] = [UIImage(),UIImage(),UIImage(),UIImage()] //[NIL, ...]
-    var currentImage = 0
+    private var pictures: [UIImage] = []
+        
+    var currentIndex = 0
     
-    func refresh() {
-        let name = Notification.Name(rawValue: "PicturesLoaded")
-        let notification = Notification(name: name)
-        NotificationCenter.default.post(notification)
+    var currentImage: UIImage {
+        return pictures[currentIndex]
+    }
+        
+    func addPicture(picture: UIImage) {
+        pictures.append(picture)
+    }
+    func clearPictures() {
+        self.pictures = []
     }
     
+    func refresh() {
+        let notificationName = Notification.Name(rawValue: "PicturesLoaded")
+        let notification = Notification(name: notificationName)
+        NotificationCenter.default.post(notification)
+    }
 }

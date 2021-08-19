@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Delm-Medium.otf">
+            <string>Delm-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -41,6 +46,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypX-h7-QyW">
                                         <rect key="frame" x="102" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
+                                        <state key="selected" backgroundImage="Selected"/>
                                         <connections>
                                             <action selector="secondLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZX-Em-gs7"/>
                                         </connections>
@@ -48,6 +54,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-iH-guj">
                                         <rect key="frame" x="204" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
+                                        <state key="selected" backgroundImage="Selected"/>
                                         <connections>
                                             <action selector="thirdLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5d-i2-9zd"/>
                                         </connections>
@@ -64,13 +71,13 @@
                                 <variation key="heightClass=compact-widthClass=compact" image="Arrow Left"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILk-ul-MXV">
-                                <rect key="frame" x="139" y="105" width="136" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="145.33333333333334" y="105" width="123.33333333333334" height="22.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-fp-IsO" customClass="GridLayout" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="58" y="140.33333333333337" width="298" height="298"/>
+                                <rect key="frame" x="58" y="142.33333333333337" width="298" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="K7h-vR-ine">
                                         <rect key="frame" x="14" y="14" width="270" height="128"/>
@@ -260,11 +267,11 @@
                                 <exclude reference="laZ-cX-gNY"/>
                                 <exclude reference="sVq-Ih-H2R"/>
                                 <exclude reference="uPd-77-Ref"/>
+                                <exclude reference="7Rp-4O-bUU"/>
+                                <exclude reference="me3-tx-pj5"/>
                                 <exclude reference="6YE-St-rTi"/>
                                 <exclude reference="lct-yY-Ji4"/>
                                 <exclude reference="nYU-g2-nNK"/>
-                                <exclude reference="7Rp-4O-bUU"/>
-                                <exclude reference="me3-tx-pj5"/>
                                 <exclude reference="Df5-yF-bZ0"/>
                                 <exclude reference="MSj-gT-Y3L"/>
                             </mask>
@@ -273,12 +280,12 @@
                             <mask key="constraints">
                                 <exclude reference="2BA-85-XVH"/>
                                 <include reference="fki-Xj-GIs"/>
-                                <exclude reference="mDp-R6-CeO"/>
-                                <include reference="nYU-g2-nNK"/>
                                 <include reference="7Rp-4O-bUU"/>
                                 <exclude reference="8zP-ka-z8n"/>
                                 <exclude reference="QPY-98-YVX"/>
                                 <include reference="me3-tx-pj5"/>
+                                <exclude reference="mDp-R6-CeO"/>
+                                <include reference="nYU-g2-nNK"/>
                                 <include reference="Df5-yF-bZ0"/>
                                 <exclude reference="Tqm-5o-Q5N"/>
                             </mask>
@@ -325,7 +332,7 @@
                     <connections>
                         <outlet property="buttonsLayout" destination="anz-yC-qR9" id="OHz-23-GgV"/>
                         <outlet property="gridLayout" destination="iSa-fp-IsO" id="OEh-kk-LFJ"/>
-                        <outlet property="label" destination="ILk-ul-MXV" id="GCC-Du-ZMV"/>
+                        <outlet property="swipeLabel" destination="ILk-ul-MXV" id="E3G-X3-no8"/>
                         <outletCollection property="images" destination="uUW-4G-G0s" collectionClass="NSMutableArray" id="FTP-Ma-1zU"/>
                         <outletCollection property="images" destination="5Eu-lD-4KT" collectionClass="NSMutableArray" id="SQj-x3-fBx"/>
                         <outletCollection property="images" destination="1Lp-Sl-4ba" collectionClass="NSMutableArray" id="NVB-qL-zvd"/>
