@@ -21,7 +21,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(!UIDevice.current.orientation.isValidInterfaceOrientation)
         
         buttonsLayout.style = .second
         gridLayout.style = .second
@@ -58,12 +57,19 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
                         self.gridLayout.transform = translationTransform }) { _ in
             self.share()
+            self.removeImages()
             translationTransform = CGAffineTransform(translationX: 0, y: 0)
             UIView.animate(withDuration: 2.3, animations: {
                             self.gridLayout.transform = translationTransform })
         }
     }
-    
+    private func removeImages() {
+        for image in images {
+            image.image = nil
+            image.superview?.subviews[1].isHidden = false
+        }
+        layoutEngine.clearPictures()
+    }
     private func share() {
         let imageToShare = gridLayout.toImage()
         let activityViewController =
@@ -72,19 +78,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func firstLayout(_ sender: UIButton) {
-        layoutEngine.clearPictures()
+        removeImages()
         buttonsLayout.style = .first
         gridLayout.style = .first
     }
     
     @IBAction func secondLayout(_ sender: UIButton) {
-        layoutEngine.clearPictures()
+        removeImages()
         buttonsLayout.style = .second
         gridLayout.style = .second
     }
     
     @IBAction func thirdLayout(_ sender: UIButton) {
-        layoutEngine.clearPictures()
+        removeImages()
         buttonsLayout.style = .third
         gridLayout.style = .third
     }
@@ -101,8 +107,8 @@ class ViewController: UIViewController {
     }
     
     @objc func picturesLoaded() {
-        //layoutEngine.currentImage.image = currentPicture
-        layoutEngine.addPicture(picture: currentPicture)
+        images[layoutEngine.currentIndex].image = currentPicture
+
     }
     
     /*func layoutChanged() {
