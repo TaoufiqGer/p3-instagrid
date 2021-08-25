@@ -6,13 +6,15 @@
 //
 
 import UIKit
-//Subview represents buttons stack
+
+///Subview represents buttons stack
 class ButtonsLayout: UIStackView {
 
     enum Style {
         case first, second, third
     }
     
+    /// ButtonsLAyout can have three different style
     var style: Style = .second {
         didSet {
             setStyle(style)
@@ -27,6 +29,7 @@ class ButtonsLayout: UIStackView {
         return array
     }
     
+    /// This function highlight the selected button
     private func setStyle(_ style: Style) {
         unselectButtons()
         switch style {
@@ -39,6 +42,7 @@ class ButtonsLayout: UIStackView {
         }
     }
     
+    /// This function removes the highlight from all the buttons
     private func unselectButtons() {
         for button in buttons {
             button.isSelected = false

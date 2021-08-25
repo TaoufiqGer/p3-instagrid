@@ -7,12 +7,15 @@
 
 import UIKit
 
+/// Subview that represents the grid in the center of the main view
 class GridLayout: UIStackView {
     
+    /// The bottom row of the grid
     @IBOutlet private var bottomRow: UIStackView!
+    /// The upper row of the grid
     @IBOutlet private var upperRow: UIStackView!
 
-    
+    /// GridLayout can have three different styles
     enum Style {
         case first, second, third
     }
@@ -23,7 +26,8 @@ class GridLayout: UIStackView {
         }
     }
     
-    
+    /// This function changes the grid layout depending on style
+    /// - Parameter style: Style of the layout
     private func setStyle(_ style: Style) {
         
         switch style {
@@ -42,6 +46,8 @@ class GridLayout: UIStackView {
 }
 
 extension GridLayout {
+    /// converts a UIView into UIImage
+    /// - Returns: UIImage of the LayoutGrid
     func toImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in

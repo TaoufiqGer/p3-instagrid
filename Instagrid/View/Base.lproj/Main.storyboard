@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -31,7 +32,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="anz-yC-qR9" customClass="ButtonsLayout" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="65" y="626" width="284" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ef-dRd">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ef-dRd">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="MpT-RU-Zyn"/>
@@ -40,23 +41,23 @@
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <state key="selected" backgroundImage="Selected"/>
                                         <connections>
-                                            <action selector="firstLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Xk-vl-wKE"/>
+                                            <action selector="changeLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ad-vx-edl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypX-h7-QyW">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypX-h7-QyW">
                                         <rect key="frame" x="102" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <state key="selected" backgroundImage="Selected"/>
                                         <connections>
-                                            <action selector="secondLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZX-Em-gs7"/>
+                                            <action selector="changeLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xR0-gq-uje"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-iH-guj">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ4-iH-guj">
                                         <rect key="frame" x="204" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <state key="selected" backgroundImage="Selected"/>
                                         <connections>
-                                            <action selector="thirdLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5d-i2-9zd"/>
+                                            <action selector="changeLayout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U7B-YL-8gk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -70,7 +71,7 @@
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=compact" image="Arrow Left"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILk-ul-MXV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILk-ul-MXV">
                                 <rect key="frame" x="145.33333333333334" y="105" width="123.33333333333334" height="22.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,7 +90,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g7-kt-ASh">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g7-kt-ASh">
                                                         <rect key="frame" x="44" y="44" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Kuv-Dp-hGF"/>
@@ -112,10 +113,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEc-fn-ChL">
                                                 <rect key="frame" x="142" y="0.0" width="128" height="128"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Eu-lD-4KT">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Eu-lD-4KT">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     </imageView>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBz-WP-Dz4">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBz-WP-Dz4">
                                                         <rect key="frame" x="44" y="44" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="WnI-my-fUw"/>
@@ -147,10 +148,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87F-BH-mRZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Lp-Sl-4ba">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Lp-Sl-4ba">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     </imageView>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-Iu-CPL">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-Iu-CPL">
                                                         <rect key="frame" x="44" y="44" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="K5h-dh-hUT"/>
@@ -177,10 +178,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YpY-0Z-4wc">
                                                 <rect key="frame" x="142" y="0.0" width="128" height="128"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Kf-tr-Mr9">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Kf-tr-Mr9">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     </imageView>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDj-yX-QRc">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDj-yX-QRc">
                                                         <rect key="frame" x="44" y="44" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="16K-RX-2Oc"/>
@@ -337,6 +338,10 @@
                         <outletCollection property="images" destination="5Eu-lD-4KT" collectionClass="NSMutableArray" id="SQj-x3-fBx"/>
                         <outletCollection property="images" destination="1Lp-Sl-4ba" collectionClass="NSMutableArray" id="NVB-qL-zvd"/>
                         <outletCollection property="images" destination="3Kf-tr-Mr9" collectionClass="NSMutableArray" id="Ths-rF-aJP"/>
+                        <outletCollection property="addImageButtons" destination="7g7-kt-ASh" collectionClass="NSMutableArray" id="Fgv-rA-prp"/>
+                        <outletCollection property="addImageButtons" destination="dBz-WP-Dz4" collectionClass="NSMutableArray" id="JuT-cl-D5g"/>
+                        <outletCollection property="addImageButtons" destination="c8z-Iu-CPL" collectionClass="NSMutableArray" id="DIu-KC-zaB"/>
+                        <outletCollection property="addImageButtons" destination="SDj-yX-QRc" collectionClass="NSMutableArray" id="9Uf-k4-RQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
