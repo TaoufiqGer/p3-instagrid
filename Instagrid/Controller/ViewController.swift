@@ -57,9 +57,6 @@ class ViewController: UIViewController {
                         self.gridLayout.transform = translationTransform }) { _ in
             self.share()
             self.removeImages()
-            translationTransform = CGAffineTransform(translationX: 0, y: 0)
-            UIView.animate(withDuration: 2.3, animations: {
-                            self.gridLayout.transform = translationTransform })
         }
     }
     
@@ -78,6 +75,13 @@ class ViewController: UIViewController {
         let imageToShare = gridLayout.toImage()
         let activityViewController =
             UIActivityViewController(activityItems: [imageToShare], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            var translationTransform: CGAffineTransform
+            translationTransform = CGAffineTransform(translationX: 0, y: 0)
+            UIView.animate(withDuration: 2.3, animations: {
+                            self.gridLayout.transform = translationTransform })
+                }
         present(activityViewController, animated: true)
     }
     
@@ -111,7 +115,12 @@ class ViewController: UIViewController {
     
     /// This function will add an image to the view from the model
     @objc func picturesLoaded() {
-        images[layoutEngine.currentIndex].image = layoutEngine.currentImage
+        //images[layoutEngine.currentIndex].image = layoutEngine.currentImage
+        for image in images {
+            if image.tag == layoutEngine.currentIndex {
+                image.image = layoutEngine.currentImage
+            }
+        }
     }
     
     @objc func onDeviceRotated() {
@@ -136,11 +145,12 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
         /// Hide the + sign on the picture
         currentAddButton.isHidden = true
-        picker.dismiss(animated: true, completion: nil)
+        
     }
     
     /// This function manages when the user cancel the picking process
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+        
     }
 }
